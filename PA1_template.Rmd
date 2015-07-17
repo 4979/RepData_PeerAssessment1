@@ -32,6 +32,17 @@ For this part of the assignment, we can ignore the missing values in the dataset
 ```{r}
 ggplot(noNA, aes(date, steps)) + geom_bar(stat = "identity", colour = "steelblue", fill = "steelblue", width = 0.7) + facet_grid(. ~ month, scales = "free") + labs(title = "Histogram of Total Number of Steps Taken Each Day", x = "Date", y = "Total number of steps")
 ```
+* Calculate and report the [1]mean and [2]median total number of steps taken per day.
+
+  [1]Mean total number of steps taken per day:
+  ```{r}
+  totalSteps <- aggregate(noNA$steps, list(Date = noNA$date), FUN = "sum")$x
+  mean(totalSteps)
+  ```
+  [2]Median total number of steps taken per day:
+  ```{r}
+  median(totalSteps)
+  ```
 
 
 
