@@ -1,5 +1,4 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
 title: 'Reproducible Research: Peer Assessment-01'
 author: "Prabhat Kumar"
 date: "18 July 2015"
@@ -10,16 +9,22 @@ output:
 Reproducible Research: Peer Assessment-01
 =========================================
 Created by "Prabhat Kumar" on "18 July 2015".
-
 ### Basic settings
 ```{r}
 echo = TRUE           # Always make code visible.
 options(scipen = 1)   # Turn off scientific notations for numbers.
 ```
-
 ## Loading and preprocessing the data
-
-
+```{r}
+unzip("activity.zip")
+data <- read.csv("activity.csv", colClasses = c("integer", "Date", "factor"))
+data$month <- as.numeric(format(data$date, "%m"))
+noNA <- na.omit(data)
+rownames(noNA) <- 1:nrow(noNA)
+head(noNA)
+dim(noNA)
+library(ggplot2)
+```
 
 ## What is mean total number of steps taken per day?
 
