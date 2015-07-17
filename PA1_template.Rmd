@@ -1,5 +1,8 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
+title: 'Reproducible Research: Peer Assessment-01'
+author: "Prabhat Kumar"
+date: "18 July 2015"
 output: 
   html_document:
     keep_md: true
