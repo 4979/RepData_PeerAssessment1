@@ -25,8 +25,13 @@ head(noNA)
 dim(noNA)
 library(ggplot2)
 ```
-
 ## What is mean total number of steps taken per day?
+For this part of the assignment, we can ignore the missing values in the dataset.
+
+* Make a histogram of the total number of steps taken each day.
+```{r}
+ggplot(noNA, aes(date, steps)) + geom_bar(stat = "identity", colour = "steelblue", fill = "steelblue", width = 0.7) + facet_grid(. ~ month, scales = "free") + labs(title = "Histogram of Total Number of Steps Taken Each Day", x = "Date", y = "Total number of steps")
+```
 
 
 
