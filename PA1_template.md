@@ -40,3 +40,36 @@ dim(noNA)
 ```r
 library(ggplot2)
 ```
+
+### What is mean total number of steps taken per day?
+For this part of the assignment, you can ignore the missing values in the dataset.
+
+* Make a histogram of the total number of steps taken each day
+
+```r
+ggplot(noNA, aes(date, steps)) + geom_bar(stat = "identity", colour = "steelblue", fill = "steelblue", width = 0.7) + facet_grid(. ~ month, scales = "free") + labs(title = "Histogram of Total Number of Steps Taken Each Day", x = "Date", y = "Total number of steps")
+```
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+
+* Calculate and report the mean and median total number of steps taken per day
+
+Mean total number of steps taken per day:
+
+```r
+totalSteps <- aggregate(noNA$steps, list(Date = noNA$date), FUN = "sum")$x
+mean(totalSteps)
+```
+
+```
+## [1] 10766
+```
+Median total number of steps taken per day:
+
+```r
+median(totalSteps)
+```
+
+```
+## [1] 10765
+```
